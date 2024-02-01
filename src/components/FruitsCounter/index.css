@@ -1,0 +1,29 @@
+.bg {
+  background-color: 'ffd569';
+  width: 100vh;
+  height: 100vh;
+}
+
+.bg1 {
+  background-color: 'ffffff';
+  width: 80vh;
+  height: 80vh;
+  border-radius: 10px;
+}
+.manban {
+  height: 150px;
+  width: 160px;
+}
+.but {
+  background-color: '007bff';
+  border-radius: 5px;
+}
+.imgdiv {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+.c {
+  color: 'ffd569';
+}
