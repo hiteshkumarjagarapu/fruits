@@ -1,54 +1,63 @@
-import {component} from 'react'
+import {Component} from 'react'
+
 import './index.css'
 
-class FruitsCounter extends component {
-  state = {count: 0, counter: 0}
-
-  mango = () => {
-    const {count} = this.state
-    this.setState(prev => ({count: prev.count + 1}))
+class FruitsCounter extends Component {
+  state = {
+    mangoesCount: 0,
+    bananasCount: 0,
   }
 
-  banana = () => {
-    const {counter} = this.state
-
-    this.setState(prev => ({count: prev.counter + 1}))
+  onClickEatBanana = () => {
+    this.setState(prevState => ({bananasCount: prevState.bananasCount + 1}))
   }
+
+  onClickEatMango = () => {
+    this.setState(prevState => ({mangoesCount: prevState.mangoesCount + 1}))
+  }
+
   render() {
-    const {count, counter} = this.state
+    const {mangoesCount, bananasCount} = this.state
+
     return (
-      <div className="bg">
-        <div className="bg1">
-          <h1>
-            Bob ate<span className="c">{count}</span> mangoes
-            <span className="c">{counter}</span> bananas
+      <div className="fruits-counter-container">
+        <div className="fruits-counter">
+          <h1 className="count-text">
+            Bob ate <span className="count">{mangoesCount}</span> mangoes
+            <span className="count"> {bananasCount}</span> bananas
           </h1>
-          <div className="imgdiv">
-            <div>
+          <div className="counters-control-container">
+            <div className="counter-control">
               <img
-                className="manban"
                 src="https://assets.ccbp.in/frontend/react-js/mango-img.png"
                 alt="mango"
+                className="fruit-image"
               />
+              <div className="button-container">
+                <button
+                  type="button"
+                  className="button"
+                  onClick={this.onClickEatMango}
+                >
+                  Eat Mango
+                </button>
+              </div>
             </div>
-            <div>
-              <button type="button" className="but" onClick={this.mango}>
-                Eat Mango
-              </button>
-            </div>
-          </div>
-          <div className="imgdiv">
-            <div>
+            <div className="counter-control">
               <img
-                className="manban"
                 src="https://assets.ccbp.in/frontend/react-js/banana-img.png"
                 alt="banana"
+                className="fruit-image"
               />
-            </div>
-            <div>
-              <button type="button" className="but" onClick={this.banana}>
-                Eat Banana
-              </button>
+              <div className="button-container">
+                <button
+                  type="button"
+                  className="button"
+                  onClick={this.onClickEatBanana}
+                >
+                  Eat Banana
+                </button>
+              </div>
             </div>
           </div>
         </div>
